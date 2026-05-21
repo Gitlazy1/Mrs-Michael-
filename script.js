@@ -86,11 +86,25 @@ function handleAnswerSelection() {
     }
 }
 
+// Audio Configuration
+let voiceNote = new Audio('audio/Voice.m4a');
+
 // Modal System Architecture
 function openModal(modalId) {
     document.getElementById(modalId).classList.add('active');
+    
+    // Check if the opened modal is the "miss me" card
+    if (modalId === 'miss-me-modal') { 
+        voiceNote.currentTime = 0; // Rewind to the start
+        voiceNote.play().catch(error => console.log("Audio play blocked by browser:", error));
+    }
 }
 
 function closeModal(modalId) {
     document.getElementById(modalId).classList.remove('active');
+    
+    // Pause the audio when she closes the card
+    if (modalId === 'miss-me-modal') {
+        voiceNote.pause();
+    }
 }
