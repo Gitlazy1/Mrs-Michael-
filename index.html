@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="intro-screen" class="screen active">
+        <div class="intro-content">
+            <h1 class="fade-in">Thinking of You</h1>
+            <h2 class="fade-in delay-1">Mrs Michael</h2>
+            <button id="start-btn" class="btn fade-in delay-2">Begin Experience</button>
+        </div>
+    </div>
+
+    <div id="letter-screen" class="screen">
+        <div class="card glass-card">
+            <h2 class="serif-title">Before we begin...</h2>
+            <p class="letter-text">
+                I wanted to create something purely for you. A little space on the internet that belongs entirely to us. Every question, every word, and every detail here was built with you in mind. 
+            </p>
+            <p class="letter-text">
+                Answer these questions honestly, and let's see how well you know the details of us. There are rewards waiting for you at the end.
+            </p>
+            <button id="to-quiz-btn" class="btn">Proceed to Quiz</button>
+        </div>
+    </div>
+
+    <div id="quiz-screen" class="screen">
+        <div class="quiz-container">
+            <div class="progress-container">
+                <span id="question-number">Question 1 of 5</span>
+                <div class="progress-bar-bg">
+                    <div id="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="card quiz-card">
+                <h3 id="question-text" class="question-title">Loading question...</h3>
+                <div id="options-container" class="options-grid">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rewards-screen" class="screen">
+        <div class="rewards-container">
+            <h2 class="serif-title animate-up">You Did It.</h2>
+            <p class="subtitle animate-up delay-1">Your rewards are unlocked below.</p>
+            
+            <div class="rewards-grid">
+                <div class="reward-card glass-card animate-up delay-2" onclick="openModal('letter-modal')">
+                    <div class="reward-icon">✉️</div>
+                    <h3>A Personal Note</h3>
+                    <p>Open when you need a reminder.</p>
+                </div>
+
+                <div class="reward-card glass-card animate-up delay-3" onclick="openModal('audio-modal')">
+                    <div class="reward-icon">🎵</div>
+                    <h3>Voice Note</h3>
+                    <p>Open when you want to hear my voice.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="letter-modal" class="modal" onclick="closeModal('letter-modal')">
+        <div class="modal-content glass-card" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal('letter-modal')">&times;</span>
+            <h2 class="serif-title">My Heart Note</h2>
+            <p> Hi Mrs Michael, so want to let you know that roses 🌹 are Red ♥️ violets are blue 💙,I wanna fuck with you</p>
+        </div>
+    </div>
+
+    <div id="audio-modal" class="modal" onclick="closeModal('audio-modal')">
+        <div class="modal-content glass-card" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal('audio-modal')">&times;</span>
+            <h2 class="serif-title">Open when you miss me</h2>
+            <div class="audio-player-mock">
+                <div class="waveform">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <p class="audio-caption">"Close your eyes, imagine my arms wrapped around you..."</p>
+                                        <audio controls preload="auto">
+                    <source src="audio/voice.m4a" type="audio/x-m4a">
+                    <source src="audio/voice.m4a" type="audio/mp4">
+                    <source src="./audio/voice.m4a">
+                    Your browser does not support the audio element.
+                </audio>
+
+                
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
